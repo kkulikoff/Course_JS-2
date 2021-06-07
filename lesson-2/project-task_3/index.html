@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор гамбургера</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 750px;
+        }
+
+        .size,
+        .topping,
+        .relish {
+            text-align: center;
+            width: 100%;
+            height: 150px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="size">
+            <form action="">
+                <p><b>Выберите вид гамбургера:</b></p>
+                <p><label><input name="size_radio" type="radio" value="">Маленький (50 рублей, 20 калорий).</label></p>
+                <p><label><input name="size_radio" type="radio" value="">Большой (100 рублей, 40 калорий).</label></p>
+            </form>
+        </div>
+        <div class="topping">
+            <form action="">
+                <p><b>Выберите одну из начинок:</b></p>
+                <p><label><input name="topping_radio" type="radio" value="">С сыром (+10 рублей, +20 калорий).</label>
+                </p>
+                <p><label><input name="topping_radio" type="radio" value="">С салатом (+20 рублей, +5 калорий).</label>
+                </p>
+                <p><label><input name="topping_radio" type="radio" value="">С картофелем (+15 рублей, +10
+                        калорий).</label></p>
+            </form>
+        </div>
+        <div class="relish">
+            <form action="">
+                <p><b>Выберите дополнительную опцию:</b></p>
+                <p><label><input type="checkbox" name="" value="" id="chb-rel">посыпать приправой (+15 рублей, +0
+                        калорий).</label><Br>
+                    <label><input type="checkbox" name="" value="" id="chb-may">полить майонезом (+20 рублей, +5
+                        калорий).</label></p>
+            </form>
+        </div>
+        <button onclick="ham.calculate()" id="calc">Расчитать заказ</button>
+        <button onclick="ham.clear()" id="clear">Очистить список</button>
+        <div class="order"></div>
+    </div>
+    <script>
+        class Hamburger {
+            constructor(size, topping, relish) {
+                this.size = size;
+                this.topping = topping;
+                this.relish = relish;
+                this.ccal = 0;
+                this.price = 0;
+            }
+            getSize() {
+                let rad_size = document.getElementsByName('size_radio');
+                for (let i = 0; i < rad_size.length; i++) {
+                    if (rad_size[i].checked) {
+                        if (i == 0) {
+                            this.size = 'Маленький';
+                            this.ccal += 20;
+                            this.price += 50;
+                        } else if (i == 1) {
+                            this.size = 'Большой';
+                            this.ccal += 40;
+                            this.price += 100;
+                        }
+                    }
+                }
+            }
+            getTopping() {
+                let rad_topping = document.getElementsByName('topping_radio');
+                for (let i = 0; i < rad_topping.length; i++) {
+                    if (rad_topping[i].checked) {
+                        if (i == 0) {
+                            this.topping = 'Сыр';
+                            this.ccal += 20;
+                            this.price += 10;
+                        } else if (i == 1) {
+                            this.topping = 'Салат';
+                            this.ccal += 5;
+                            this.price += 20;
+                        } else if (i == 2) {
+                            this.topping = 'Картофель';
+                            this.ccal += 10;
+                            this.price += 15;
+                        } 
+                    } 
+                }
+            }
+            getRelish() {
+                if (document.getElementById('chb-rel').checked && document.getElementById('chb-may').checked) {
+                    this.relish = 'Приправа и Майонез';
+                    this.ccal += 5;
+                    this.price += 35;
+                }
+                else if (document.getElementById('chb-may').checked) {
+                    this.relish = 'Майонез';
+                    this.ccal += 5;
+                    this.price += 20;
+                }
+                else if (document.getElementById('chb-rel').checked) {
+                    this.relish = 'Приправа';
+                    this.price += 15;
+                } 
+                else {
+                    this.relish = 'Не выбрано';
+                }
+            }
+            render() {
+                return document.querySelector('.order').innerHTML = `<h4><b>Ваш заказ</b></h4>
+                <p><b>${this.size}</b> гамбургер с начинкой: <b>${this.topping}</b>.</p>
+                <p>Выбрана дополнительная опция: <b>${this.relish}</b>.</p>
+                <p>Калорийность еды составляет: <b>${this.ccal} ккал</b>.</p>
+                <p>Сумма к оплате <b>${this.price} рублей</b>.</p>`
+            }
+            clear() {
+                this.size = '';
+                this.topping = '';
+                this.relish = '';
+                this.ccal = 0;
+                this.price = 0;
+                return document.querySelector('.order').innerHTML = `<h4><b>Ваш заказ пуст.</b></h4>`
+            }
+            calculate() {
+                this.getSize();
+                this.getTopping();
+                this.getRelish();
+                this.render();
+            }
+        }
+        const ham = new Hamburger;
+    </script>
+</body>
+
+</html>

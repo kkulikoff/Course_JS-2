@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="inline">
+        <h2>Онлайн заявка</h2>
+        <form id="contact" action="#" method="post" name="contact" onSubmit="return false;">
+            <div class="alert">
+                <p class="txt_p" id="p_name">Только буквы</p>
+            </div>
+            <div class="alert">
+                <p class="txt_p" id="p_phone">+7(000)000-0000</p>
+            </div>
+            <div class="alert">
+                <p class="txt_p" id="p_email">По образцу</p>
+            </div>
+            <br>
+            <input id="name" class="txt" name="name" type="name" placeholder="Ваше имя">
+            <input id="phone" class="txt" name="phone" type="phone" placeholder="+7(000)000-0000">
+            <input id="email" class="txt" name="email" type="email" placeholder="mymail@mail.ru">
+            <textarea id="msg" class="txtarea" name="msg" placeholder="Ваше сообщение:"></textarea>
+            <button id="send">Отправить</button>
+        </form>
+    </div>
+    <script src="task_3.js"></script>
+</body>
+
+</html>

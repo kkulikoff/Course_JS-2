@@ -1,0 +1,84 @@
+#inline {
+    margin-left: 30px;
+    width: 80%;
+    margin: 0 auto;
+    background: #FFF;
+    padding: 10px 20px;
+}
+
+.txt {
+    display: inline-block;
+    color: #676767;
+    width: 190px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    padding: 5px 9px;
+    font-size: 15px !important;
+    line-height: 1.4em;
+}
+.txt_p {
+    display: none;
+    color: #676767;
+    width: 190px;
+    margin-bottom: 10px;
+    padding-left: 15px;
+    font-size: 15px !important;
+    line-height: 1.4em;
+    color: red;
+}
+
+.txtarea {
+    display: inline-block;
+    color: #676767;
+    width: 617px;
+    margin-bottom: 10px;
+    border: 1px solid #CCC;
+    padding: 5px 9px;
+    font-size: 15px !important;
+    line-height: 1.4em;
+    height: 80px;
+}
+
+.txt:focus,
+.txtarea:focus {
+    border-style: solid;
+    border-color: #BABABA;
+    color: #444;
+}
+
+input.error,
+textarea.error {
+    border-color: #973D3D;
+    border-style: solid;
+    background: #F0BEBE;
+    color: #A35959;
+}
+
+input.error:focus,
+textarea.error:focus {
+    border-color: #973D3D;
+    color: #A35959;
+}
+
+#send {
+    color: #FFFFFF;
+    display: block;
+    cursor: pointer;
+    padding: 5px 11px;
+    font-size: 1.2em;
+    border: solid 1px #F9F9F9;
+    border-radius: 2px;
+    background: #70C6B9;
+    width: 210px;
+    margin-bottom: 20px;
+}
+
+#send:hover {
+    background: #979797;
+}
+.alert {
+    display: inline-block;
+    width: 190px;
+    height: 21px;
+    margin-left: 15px;
+}

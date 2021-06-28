@@ -1,0 +1,22 @@
+[
+  {
+    "id_product": 124,
+    "product_name": "Берцы",
+    "price": 1600
+  },
+  {
+    "id_product": 457,
+    "product_name": "Вибрамы",
+    "price": 3000
+  },
+  {
+    "id_product": 123,
+    "product_name": "Ворк бутс",
+    "price": 45600
+  },
+  {
+    "id_product": 456,
+    "product_name": "Сапоги",
+    "price": 1000
+  }
+]

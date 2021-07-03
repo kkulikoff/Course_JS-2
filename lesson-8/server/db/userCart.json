@@ -1,0 +1,24 @@
+{
+    "amount": 46600,
+    "countGoods": 2,
+    "contents": [
+        {
+            "quantity": 1,
+            "id_product": 123,
+            "product_name": "Ворк бутс",
+            "price": 45600
+        },
+        {
+            "quantity": 1,
+            "id_product": 456,
+            "product_name": "Сапоги",
+            "price": 1000
+        },
+        {
+            "quantity": 3,
+            "id_product": 124,
+            "product_name": "Берцы",
+            "price": 1600
+        }
+    ]
+}
